@@ -79,3 +79,34 @@ docker pull <image name>
 ## push image to registry
 docker push <image name>
 ```
+
+**Dockerfile**
+
+Docker can build images automatically by reading the instructions from a **Dockerfile**. A Dockerfile is a *text document* that contains all the commands a user could call on the command line to assemble an *image*. Using **docker build** users can create an automated build that executes several command-line instructions in succession.
+
+**Dockerfile Components:**
+
+| Command | Description |
+|---------|-------------|
+|`FROM`| for base image, this command must be on the top of the dockerfile|
+|`RUN`| to execute commands, it will create a layer in image|
+|`MAINTAINER`|author/owner/description|
+|`COPY`|copy files from local system(docker vm) we need to provide source, destination(we can't download file from internet and any remote repo.) |
+|`ADD`|similar to copy but it provides a feature to download files from internet, also extract file at docker image side.|
+|`EXPOSE`|to expose ports sucha as port 8080 for tomcat, port 80 for nginx etc.|
+|`CMD`|execute commands but during container creation|
+|`ENTRYPOINT`|similar to `CMD` but has higher priority over `CMD` , first ccommand will be executed by `ENTRYPOINT` only|
+|`ENV`|environment variables|
+|`WORKDIR`|The `WORKDIR` command is used to define the working directory of a Docker container at any given time.|
+||Any RUN, CMD, ADD, COPY, or ENTRYPOINT command will be executed in the specified working directory. e.g. `WORKDIR /directory`|
+
+**Steps:**
+
+*Dockefile --> Instructions --> Build --> Run*
+
+
+1. Create a file named Dockerfile.
+2. Add instructions in Dockerfile.
+3. Build dockerfile to create image.
+4. Run image to create container.
+
